@@ -307,11 +307,15 @@ def test_bool_hashable():
     assert FALSE in dict
 
 
-@pytest.mark.parametrize("a, b, n, expected", [(2, 3, 0, 0), (2, 3, 4, 1), (7, 5, 1, 0)])
+@pytest.mark.parametrize(
+    "a, b, n, expected", [(2, 3, 0, 0), (2, 3, 4, 1), (7, 5, 1, 0)]
+)
 def test_addmod_concrete(a, b, n, expected):
     assert int(BV(a).addmod(BV(b), BV(n))) == expected
 
 
-@pytest.mark.parametrize("a, b, n, expected", [(2, 3, 0, 0), (2, 3, 4, 2), (7, 5, 1, 0)])
+@pytest.mark.parametrize(
+    "a, b, n, expected", [(2, 3, 0, 0), (2, 3, 4, 2), (7, 5, 1, 0)]
+)
 def test_mulmod_concrete(a, b, n, expected):
     assert int(BV(a).mulmod(BV(b), BV(n))) == expected
